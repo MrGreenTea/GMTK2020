@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/ground_06.png" type="Texture" id=2]
 [ext_resource path="res://environment/ground_01.png" type="Texture" id=3]
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://environment/target.tscn" type="PackedScene" id=5]
+[ext_resource path="res://environment/wooden_box.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -61,5 +62,27 @@ position = Vector2( 160, 160 )
 SPEED = 256.0
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 545.74, 289.268 )
+position = Vector2( 96, 544 )
+
+[node name="Wood Crate" parent="." instance=ExtResource( 6 )]
+position = Vector2( 704, 64 )
+collision_layer = 5
+
+[node name="Wood Crate2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 704, 128 )
+
+[node name="Wood Crate3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 704, 192 )
+
+[node name="Wood Crate7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 704, 256 )
+
+[node name="Wood Crate4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 768, 256 )
+
+[node name="Wood Crate5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 832, 256 )
+
+[node name="Wood Crate6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 896, 256 )
 [connection signal="body_entered" from="Target" to="Player" method="_on_Target_body_entered"]
