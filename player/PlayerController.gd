@@ -16,22 +16,27 @@ func on_physics_process(target: Player, delta: float) -> void:
 	if direction.length_squared() > 0.1:
 		var movement = target.move_and_slide(direction * target.SPEED)
 		if movement.length() <= 0.1:
-			print("Can't move!")
 			target.anger += delta
 	target.stress += delta
 	var frame = round(float(target.stress) / target.MAX_STRESS * 2)
 	target.get_node("AnimatedSprite").frame = frame
 	var enemies = get_tree().get_nodes_in_group("enemies")
+	# enemies in close vicinity cause fear
 	for e in enemies:
 		var dist = (e.position - target.position).length()
-		if dist <= 100:
+		if dist <= 192:
 			var additional_fear = (100 / dist) * delta / sqrt(len(enemies)) * 0.25
 			target.stress += delta
 			target.fear += additional_fear
-			target.anger += additional_fear * 0.3
+	# enemies touching us make us angry
+	for e in target.get_node("PushArea").get_overlapping_bodies():
+		target.anger += delta * 5
+		target.stress += delta
 	if target.stress >= target.MAX_STRESS:
-		if target.anger >= target.fear:
+		if target.anger > target.fear:
 			go_to("Anger")
 		elif target.fear > target.anger:
 			go_to("Fear")
+		else:
+			print("Nothing triggered me right now :)")
 		target.stress = 0

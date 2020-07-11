@@ -12,7 +12,7 @@ func on_physics_process(target: Player, delta: float):
 	var direction = Vector2.ZERO
 	for e in enemies:
 		var distance = target.position - e.position
-		direction += distance / distance.length()
+		direction += distance / distance.length_squared()
 	target.move_and_slide(direction.normalized() * target.SPEED * SPEED_MULTIPLIER)
 
 

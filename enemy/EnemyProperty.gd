@@ -10,4 +10,3 @@ func _ready():
 	
 func is_destroyed():
 	print("Is destroyed called!")
-
