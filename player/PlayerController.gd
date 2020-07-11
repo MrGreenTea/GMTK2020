@@ -3,7 +3,7 @@ extends State
 var stress = 0
 export var MAX_STRESS = 10.0
 
-const EMOTIONS = ["Anger", "Fear"]
+const EMOTIONS = ["Anger"]
 
 func on_enter(target: Player):
 	target.get_node("AnimatedSprite").frame = 0
