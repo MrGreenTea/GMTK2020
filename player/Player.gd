@@ -21,3 +21,7 @@ func _physics_process(delta):
 		emit_signal("player_stressed")
 		print("I'm stressed as fuck")
 		stress = 0
+
+
+func _on_Target_body_entered(body):
+	print("YOU WIN")
