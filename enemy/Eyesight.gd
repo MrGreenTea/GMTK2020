@@ -13,8 +13,8 @@ signal player_lost(node)
 func _ready():
 	# find player
 	for node in get_tree().get_nodes_in_group("player"):
-			player = node
-			prints("Found player", player)
+		player = node
+		prints("Found player", player)
 	
 	# add collision exception for tiles
 	for node in get_tree().get_nodes_in_group("invisible_raycast"):

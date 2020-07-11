@@ -1,19 +1,19 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://environment/ground_06.png" type="Texture" id=1]
-[ext_resource path="res://environment/ground_01.png" type="Texture" id=2]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://environment/target.tscn" type="PackedScene" id=4]
-[ext_resource path="res://environment/destructible_objects/Protected By Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://environment/wooden_box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/ground_06.png" type="Texture" id=2]
+[ext_resource path="res://environment/ground_01.png" type="Texture" id=3]
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://environment/target.tscn" type="PackedScene" id=5]
+[ext_resource path="res://environment/wooden_box.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/forbidden_lawn/EnemyLawn.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "ground_01.png 0"
-0/texture = ExtResource( 2 )
+0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
@@ -27,7 +27,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = "ground_06.png 1"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 64, 64 )
@@ -59,79 +59,90 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 
 [node name="Target" parent="." groups=[
 "invisible_raycast",
-] instance=ExtResource( 4 )]
+] instance=ExtResource( 5 )]
 position = Vector2( 864, 160 )
+
+[node name="EnemyLawn2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 454.51, 180.109 )
+my_owner = NodePath("../YSort/Enemy2")
+size = Vector2( 100, 100 )
+
+[node name="EnemyLawn" parent="." instance=ExtResource( 7 )]
+position = Vector2( 176.627, 454.593 )
+my_owner = NodePath("../YSort/Enemy")
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Wood Crate" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 704, 64 )
 
-[node name="Protected By Enemy2" parent="YSort/Wood Crate" instance=ExtResource( 5 )]
-position = Vector2( -575.78, 215.772 )
-my_owner = NodePath("../../Enemy")
-
-[node name="Wood Crate2" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate2" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 704, 128 )
 physics_material_override = null
 
-[node name="Wood Crate3" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate3" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 704, 192 )
 physics_material_override = null
 
-[node name="Wood Crate7" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate7" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 704, 256 )
 physics_material_override = null
 
-[node name="Wood Crate4" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate4" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 768, 256 )
 physics_material_override = null
 
-[node name="Wood Crate5" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate5" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 832, 256 )
 physics_material_override = null
 
-[node name="Wood Crate6" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate6" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 896, 256 )
 physics_material_override = null
 
-[node name="Wood Crate8" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate8" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 65.1531, 278.931 )
 physics_material_override = null
 
-[node name="Wood Crate9" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate9" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 128.22, 279.772 )
 physics_material_override = null
 
-[node name="Protected By Enemy" parent="YSort/Wood Crate9" instance=ExtResource( 5 )]
-my_owner = NodePath("../../Enemy2")
-
-[node name="Wood Crate10" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate10" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 191.287, 279.772 )
 physics_material_override = null
 
-[node name="Wood Crate11" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate11" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 253.513, 279.772 )
 physics_material_override = null
 
-[node name="Wood Crate12" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate12" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 450.283, 281.454 )
 physics_material_override = null
 
-[node name="Wood Crate13" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate13" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 512.509, 281.454 )
 physics_material_override = null
 
-[node name="Wood Crate14" parent="YSort" instance=ExtResource( 7 )]
+[node name="Wood Crate14" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 574.735, 281.454 )
 
-[node name="Player" parent="YSort" instance=ExtResource( 3 )]
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 160, 160 )
 
-[node name="Enemy" parent="YSort" instance=ExtResource( 6 )]
+[node name="Enemy" parent="YSort" groups=[
+"enemies",
+] instance=ExtResource( 4 )]
 position = Vector2( 96, 544 )
 
-[node name="Enemy2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 425.736, 202.165 )
+[node name="Enemy2" parent="YSort" groups=[
+"enemies",
+] instance=ExtResource( 4 )]
+position = Vector2( 896, 448 )
+
+[node name="Enemy3" parent="YSort" groups=[
+"enemies",
+] instance=ExtResource( 4 )]
+position = Vector2( 640, 191.206 )
 [connection signal="body_entered" from="Target" to="YSort/Player" method="_on_Target_body_entered"]
-[connection signal="tree_exiting" from="YSort/Wood Crate9/Protected By Enemy" to="YSort/Wood Crate9/Protected By Enemy" method="_on_Protected_By_Enemy_tree_exiting"]
+[connection signal="tree_exiting" from="YSort/Wood Crate8" to="YSort/Enemy" method="_on_Wood_Crate8_tree_exiting"]

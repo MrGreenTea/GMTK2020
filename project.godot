@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gmtk 2020"
-run/main_scene="res://main.tscn"
+run/main_scene="res://levels_test/destroying_property.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
@@ -90,7 +90,7 @@ player_interact={
 2d_physics/layer_2="goal"
 2d_physics/layer_3="destructible"
 2d_physics/layer_4="visible"
-2d_physics/layer_5="enemies"
+2d_physics/layer_5="forbidden"
 
 [physics]
 
