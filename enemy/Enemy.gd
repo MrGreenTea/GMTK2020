@@ -20,4 +20,11 @@ func _physics_process(delta):
 #	$Eyesight.fo
 
 func _on_SenseVisual_body_entered(body):
-	follow_target = body
+	if body.name == "Player":
+		follow_target = body
+
+func _on_Eyesight_player_noticed(node):
+	follow_target = node
+
+func _on_Eyesight_player_lost(node):
+	follow_target = null # Replace with function body.
