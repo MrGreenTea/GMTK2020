@@ -12,7 +12,7 @@ export(GradientTexture) var FEAR_GRADIENT
 
 func _on_Target_body_entered(body):
 	if body == self:
-		print("!!You Win!!")
+		self.hide()
 		get_node("/root/Node2D/Overlay/Transition").transition_out()
 
 func add_anger(amount: float):

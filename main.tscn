@@ -165,13 +165,9 @@ position = Vector2( 160, 160 )
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 96, 544 )
-collision_layer = 17
-collision_mask = 17
 
 [node name="Enemy2" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 896, 448 )
-collision_layer = 17
-collision_mask = 17
 
 [node name="Policeman" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 702.661, 493.883 )
@@ -179,8 +175,6 @@ SPEED = 160.0
 
 [node name="Enemy3" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 640, 192 )
-collision_layer = 17
-collision_mask = 17
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 
