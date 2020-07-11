@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://environment/ground_06.png" type="Texture" id=1]
 [ext_resource path="res://environment/ground_01.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://environment/destructible_objects/Protected By Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/wooden_box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://emotions/AngerCharger.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -127,13 +128,14 @@ position = Vector2( 574.735, 281.454 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 160, 160 )
-SPEED = 192.0
-MAX_STRESS = 10.0
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 96, 544 )
 
 [node name="Enemy2" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 425.736, 202.165 )
+
+[node name="AreaCharger" parent="." instance=ExtResource( 8 )]
+position = Vector2( 320, 128 )
 [connection signal="body_entered" from="Target" to="YSort/Player" method="_on_Target_body_entered"]
 [connection signal="tree_exiting" from="YSort/Wood Crate9/Protected By Enemy" to="YSort/Wood Crate9/Protected By Enemy" method="_on_Protected_By_Enemy_tree_exiting"]

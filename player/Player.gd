@@ -13,17 +13,21 @@ export(GradientTexture) var FEAR_GRADIENT
 func _on_Target_body_entered(body):
 	print("YOU WIN")
 
-func _physics_process(delta):
-	$EmotionParticles.hide()
-
 func add_anger(amount: float):
 	anger += amount
 	stress += amount
-	$EmotionParticles.show()
 	_particles_material.color_ramp = ANGER_GRADIENT
+	$EmotionParticles.show()
+	$Timer.start()
 
 func add_fear(amount: float):
 	fear += amount
 	stress += amount
-	$EmotionParticles.show()
 	_particles_material.color_ramp = FEAR_GRADIENT
+	$EmotionParticles.show()
+	$Timer.start()
+
+
+
+func _on_Timer_timeout():
+	$EmotionParticles.hide()
