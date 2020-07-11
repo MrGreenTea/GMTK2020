@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
-export var SPEED = 128.0
+export var SPEED = 192.0
 var stress = 0
 export var MAX_STRESS = 10.0
 var anger = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/ground_06.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://environment/target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/wooden_box.tscn" type="PackedScene" id=6]
 [ext_resource path="res://emotions/AngerCharger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/Protected By Enemy.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -70,6 +71,9 @@ position = Vector2( 864, 160 )
 [node name="Wood Crate" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 704, 64 )
 
+[node name="Protected By Enemy" parent="YSort/Wood Crate" instance=ExtResource( 8 )]
+my_owner = NodePath("../../Enemy2")
+
 [node name="Wood Crate2" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 704, 128 )
 physics_material_override = null
@@ -97,6 +101,9 @@ physics_material_override = null
 [node name="Wood Crate8" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 65.1531, 278.931 )
 physics_material_override = null
+
+[node name="Protected By Enemy" parent="YSort/Wood Crate8" instance=ExtResource( 8 )]
+my_owner = NodePath("../../Enemy")
 
 [node name="Wood Crate9" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 128.22, 279.772 )
@@ -145,4 +152,3 @@ position = Vector2( 640, 192 )
 collision_layer = 17
 collision_mask = 17
 [connection signal="body_entered" from="Target" to="YSort/Player" method="_on_Target_body_entered"]
-[connection signal="tree_exiting" from="YSort/Wood Crate8" to="YSort/Enemy" method="_on_Wood_Crate8_tree_exiting"]
