@@ -73,39 +73,51 @@ position = Vector2( 704, 64 )
 
 [node name="Wood Crate2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 704, 128 )
+physics_material_override = null
 
 [node name="Wood Crate3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 704, 192 )
+physics_material_override = null
 
 [node name="Wood Crate7" parent="." instance=ExtResource( 6 )]
 position = Vector2( 704, 256 )
+physics_material_override = null
 
 [node name="Wood Crate4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 768, 256 )
+physics_material_override = null
 
 [node name="Wood Crate5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 832, 256 )
+physics_material_override = null
 
 [node name="Wood Crate6" parent="." instance=ExtResource( 6 )]
 position = Vector2( 896, 256 )
+physics_material_override = null
 
 [node name="Wood Crate8" parent="." instance=ExtResource( 6 )]
 position = Vector2( 65.1531, 278.931 )
+physics_material_override = null
 
 [node name="Wood Crate9" parent="." instance=ExtResource( 6 )]
 position = Vector2( 128.22, 279.772 )
+physics_material_override = null
 
 [node name="Wood Crate10" parent="." instance=ExtResource( 6 )]
 position = Vector2( 191.287, 279.772 )
+physics_material_override = null
 
 [node name="Wood Crate11" parent="." instance=ExtResource( 6 )]
 position = Vector2( 253.513, 279.772 )
+physics_material_override = null
 
 [node name="Wood Crate12" parent="." instance=ExtResource( 6 )]
 position = Vector2( 450.283, 281.454 )
+physics_material_override = null
 
 [node name="Wood Crate13" parent="." instance=ExtResource( 6 )]
 position = Vector2( 512.509, 281.454 )
+physics_material_override = null
 
 [node name="Wood Crate14" parent="." instance=ExtResource( 6 )]
 position = Vector2( 574.735, 281.454 )
