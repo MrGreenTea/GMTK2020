@@ -4,7 +4,7 @@ export var SPEED = 128.0
 export var INTERACT_RANGE = 50
 
 var stress = 0
-export(float, 0.1, 1000.0) var STRESS_PER_SECOND = 10.0
+export(float, 0.1, 100.0) var STRESS_PER_SECOND = 10.0
 export(int, 1, 1000) var MAX_STRESS = 100
 
 signal player_stressed
@@ -34,10 +34,6 @@ func _physics_process(delta):
 		has_control = true
 		$Stress.show()
 		stress = 0
-	if Input.is_action_just_pressed("player_interact"):
-		var object = $ForwardRay.get_collider()
-		if object != null:
-			object.queue_free()
 
 
 func _on_Target_body_entered(body):
