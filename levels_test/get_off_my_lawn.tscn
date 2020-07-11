@@ -63,12 +63,12 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 position = Vector2( 864, 160 )
 
 [node name="EnemyLawn2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 454.51, 180.109 )
-my_owner = NodePath("../YSort/Enemy2")
+position = Vector2( 448, 192 )
+my_owner = NodePath("../YSort/Enemy3")
 size = Vector2( 100, 100 )
 
 [node name="EnemyLawn" parent="." instance=ExtResource( 7 )]
-position = Vector2( 176.627, 454.593 )
+position = Vector2( 192, 448 )
 my_owner = NodePath("../YSort/Enemy")
 
 [node name="YSort" type="YSort" parent="."]
