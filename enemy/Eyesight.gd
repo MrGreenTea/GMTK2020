@@ -19,7 +19,7 @@ func _ready():
 	for node in get_tree().get_nodes_in_group("invisible_raycast"):
 		add_exception(node)
 	
-func scan():
+func _physics_process(delta):
 	look_at(player.position) # could be replaced with cast_to = ...
 	var object = get_collider()
 	if object != null && object.name == "Player":

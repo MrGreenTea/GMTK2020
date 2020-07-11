@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://enemy/Eyesight.gd" type="Script" id=1]
+
+[node name="Eyesight" type="RayCast2D"]
+enabled = true
+cast_to = Vector2( 1000, 0 )
+script = ExtResource( 1 )
+eyesight_radius = 10000.0
