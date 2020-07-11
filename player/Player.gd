@@ -11,7 +11,9 @@ export(GradientTexture) var ANGER_GRADIENT
 export(GradientTexture) var FEAR_GRADIENT
 
 func _on_Target_body_entered(body):
-	print("YOU WIN")
+	if body == self:
+		print("!!You Win!!")
+		get_node("/root/Node2D/Overlay/Transition").transition_out()
 
 func add_anger(amount: float):
 	anger += amount
@@ -26,8 +28,6 @@ func add_fear(amount: float):
 	_particles_material.color_ramp = FEAR_GRADIENT
 	$EmotionParticles.show()
 	$Timer.start()
-
-
 
 func _on_Timer_timeout():
 	$EmotionParticles.hide()
