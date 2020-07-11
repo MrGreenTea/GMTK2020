@@ -16,7 +16,7 @@ func on_physics_process(target: Player, delta: float) -> void:
 	if direction.length_squared() > 0.1:
 		var movement = target.move_and_slide(direction * target.SPEED)
 		if movement.length() <= 0.1:
-			target.anger += delta
+			target.add_anger(delta)
 	target.stress += delta
 	var frame = round(float(target.stress) / target.MAX_STRESS * 2)
 	target.get_node("AnimatedSprite").frame = frame
@@ -26,12 +26,10 @@ func on_physics_process(target: Player, delta: float) -> void:
 		var dist = (e.position - target.position).length()
 		if dist <= 192:
 			var additional_fear = (100 / dist) * delta / sqrt(len(enemies)) * 0.25
-			target.stress += delta
-			target.fear += additional_fear
+			target.add_fear(additional_fear)
 	# enemies touching us make us angry
 	for e in target.get_node("PushArea").get_overlapping_bodies():
-		target.anger += delta * 5
-		target.stress += delta
+		target.add_anger(delta * 5)
 	if target.stress >= target.MAX_STRESS:
 		if target.anger > target.fear:
 			go_to("Anger")
