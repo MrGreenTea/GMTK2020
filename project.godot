@@ -13,9 +13,27 @@ _global_script_classes=[ {
 "class": "BaseEmotion",
 "language": "GDScript",
 "path": "res://emotions/BaseEmotion.gd"
+}, {
+"base": "Node",
+"class": "FSM",
+"language": "GDScript",
+"path": "res://addons/node_fsm_plugin/fsm_node.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/Player.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/node_fsm_plugin/state_node.gd"
 } ]
 _global_script_class_icons={
-"BaseEmotion": ""
+"BaseEmotion": "",
+"FSM": "res://addons/node_fsm_plugin/fsm_icon.svg",
+"Player": "",
+"State": "res://addons/node_fsm_plugin/state_icon.svg"
 }
 
 [application]
@@ -24,30 +42,30 @@ config/name="Gmtk 2020"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "node_fsm_plugin" )
+
 [input]
 
 player_up={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
  ]
 }
 player_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
  ]
 }
 player_right={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
  ]
 }
 player_left={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
  ]
 }
 player_interact={
