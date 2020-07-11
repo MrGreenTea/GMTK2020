@@ -16,7 +16,6 @@ func on_physics_process(target: Player, delta: float) -> void:
 	var _a = target.move_and_slide(direction * SPEED)
 	stress += delta
 	var frame = round(float(stress) / MAX_STRESS * 2)
-	print(frame)
 	target.get_node("AnimatedSprite").frame = frame
 	if stress >= MAX_STRESS:
 		stress = 0
