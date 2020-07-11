@@ -7,7 +7,7 @@
 [ext_resource path="res://environment/target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/wooden_box.tscn" type="PackedScene" id=6]
 [ext_resource path="res://emotions/AngerCharger.tscn" type="PackedScene" id=7]
-[ext_resource path="res://environment/Protected By Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/destructible_objects/Protected By Enemy.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -131,23 +131,17 @@ position = Vector2( 574.735, 281.454 )
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 160, 160 )
 
-[node name="Enemy" parent="YSort" groups=[
-"enemies",
-] instance=ExtResource( 4 )]
+[node name="Enemy" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 96, 544 )
 collision_layer = 17
 collision_mask = 17
 
-[node name="Enemy2" parent="YSort" groups=[
-"enemies",
-] instance=ExtResource( 4 )]
+[node name="Enemy2" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 896, 448 )
 collision_layer = 17
 collision_mask = 17
 
-[node name="Enemy3" parent="YSort" groups=[
-"enemies",
-] instance=ExtResource( 4 )]
+[node name="Enemy3" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 640, 192 )
 collision_layer = 17
 collision_mask = 17

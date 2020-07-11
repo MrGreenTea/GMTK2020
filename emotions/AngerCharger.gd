@@ -6,8 +6,7 @@ var player: Player = null
 
 func _physics_process(delta):
 	if player != null:
-		player.anger += delta * 5
-		player.stress += delta
+		player.add_anger(delta * 5)
 
 
 func _on_AreaCharger_body_entered(body):

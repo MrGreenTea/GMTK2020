@@ -9,23 +9,23 @@
 [ext_resource path="res://emotions/emote_anger.png" type="Texture" id=7]
 [ext_resource path="res://emotions/emote_alert.png" type="Texture" id=8]
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.116129 )
 colors = PoolColorArray( 0.819608, 0.00784314, 0.00784314, 0.921569, 1, 0.492188, 0, 0.607843 )
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 0.337255, 0, 1, 0.807843, 0.219608, 0, 1, 0.568627 )
 
-[sub_resource type="GradientTexture" id=10]
-gradient = SubResource( 9 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 20, 20 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
@@ -33,16 +33,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=8]
 colors = PoolColorArray( 1, 0, 0, 0.792157, 1, 0.462745, 0, 0.333333 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=10]
 lifetime_randomness = 0.2
 emission_shape = 1
 emission_sphere_radius = 1.0
@@ -58,19 +58,19 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 5.0
 scale_random = 0.2
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 9 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 "visible_people",
 ]]
 script = ExtResource( 1 )
-ANGER_GRADIENT = SubResource( 8 )
-FEAR_GRADIENT = SubResource( 10 )
+ANGER_GRADIENT = SubResource( 2 )
+FEAR_GRADIENT = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -80,14 +80,14 @@ target = NodePath("..")
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -51 )
-frames = SubResource( 2 )
+frames = SubResource( 6 )
 
 [node name="DestructionArea" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructionArea"]
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="PushArea" type="Area2D" parent="."]
 position = Vector2( 1, 0 )
@@ -96,11 +96,18 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
 position = Vector2( -1, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="EmotionParticles" type="Particles2D" parent="."]
+visible = false
 amount = 24
-process_material = SubResource( 4 )
+process_material = SubResource( 10 )
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="ControlManager"]
 
