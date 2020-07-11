@@ -4,6 +4,7 @@
 [ext_resource path="res://environment/ground_06.png" type="Texture" id=2]
 [ext_resource path="res://environment/ground_01.png" type="Texture" id=3]
 [ext_resource path="res://environment/target.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -58,4 +59,8 @@ position = Vector2( 864, 160 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 160 )
 SPEED = 256.0
+
 [connection signal="body_entered" from="Target" to="Player" method="_on_Target_body_entered"]
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 545.74, 289.268 )
