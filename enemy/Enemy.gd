@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export var SPEED = 128.0
 
+var is_aggressive = false
+
 var follow_target = null
 var follow_target_last_position = null
 
@@ -13,7 +15,7 @@ func _ready():
 	
 func _physics_process(delta):
 	$Eyesight.scan()
-	if follow_target != null:
+	if follow_target != null && is_aggressive:
 		var run_to = follow_target - position
 		if run_to.length() > follow_tolerance:
 			var direction = (follow_target - position).normalized()
@@ -28,3 +30,7 @@ func _on_Eyesight_player_noticed(node):
 
 func _on_Eyesight_player_lost(node):
 	pass
+
+func _on_Wood_Crate_tree_exiting():
+	is_aggressive = true
+	print("You destroyed my crate!")
