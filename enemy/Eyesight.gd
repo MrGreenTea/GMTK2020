@@ -24,6 +24,6 @@ func _physics_process(delta):
 	var object = get_collider()
 	if object != null && object.name == "Player":
 		emit_signal("player_noticed", player)
-	else:
-		emit_signal("player_lost", player)
+#	else:
+#		emit_signal("player_lost", player)
 

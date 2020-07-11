@@ -26,7 +26,8 @@ func _on_Lawn_intrusion(owner):
 
 func _on_Eyesight_player_noticed(node):
 	follow_target = node.position
-	$EnemyController.go_to("Chasing")
+	if is_aggressive:
+		$EnemyController.go_to("Chasing")
 
 func _on_Eyesight_player_lost(node):
 	$EnemyController.go_to("Idle")
