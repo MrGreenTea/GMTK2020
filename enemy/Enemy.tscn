@@ -22,11 +22,16 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="SenseVisual" type="Area2D" parent="."]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SenseVisual"]
 shape = SubResource( 2 )
 
 [node name="Eyesight" type="RayCast2D" parent="."]
 enabled = true
+cast_to = Vector2( 1000, 0 )
 script = ExtResource( 3 )
+eyesight_radius = 10000.0
 [connection signal="body_entered" from="SenseVisual" to="." method="_on_SenseVisual_body_entered"]
+[connection signal="player_lost" from="Eyesight" to="." method="_on_Eyesight_player_lost"]
+[connection signal="player_noticed" from="Eyesight" to="." method="_on_Eyesight_player_noticed"]

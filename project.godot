@@ -52,6 +52,7 @@ player_interact={
 2d_physics/layer_1="player"
 2d_physics/layer_2="goal"
 2d_physics/layer_3="destructible"
+2d_physics/layer_4="visible"
 
 [physics]
 
