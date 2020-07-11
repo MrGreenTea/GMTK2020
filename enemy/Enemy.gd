@@ -10,7 +10,6 @@ var follow_target_last_position = null
 const follow_tolerance = 10
 
 func _ready():
-	# get player node
 	pass
 	
 func _physics_process(delta):
@@ -31,6 +30,6 @@ func _on_Eyesight_player_noticed(node):
 func _on_Eyesight_player_lost(node):
 	pass
 
-func _on_Wood_Crate_tree_exiting():
+func _on_Property_destroyed():
+	print("You destroyed my property!")
 	is_aggressive = true
-	print("You destroyed my crate!")
