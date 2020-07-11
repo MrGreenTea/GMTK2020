@@ -27,4 +27,4 @@ func _on_Eyesight_player_noticed(node):
 	follow_target = node.position
 
 func _on_Eyesight_player_lost(node):
-	print("Lost player!")
+	pass
