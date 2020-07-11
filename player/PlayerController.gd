@@ -31,6 +31,7 @@ func on_physics_process(target: Player, delta: float) -> void:
 			if e.is_in_group("policemen"):
 				additional_fear *= 5
 			target.add_fear(additional_fear)
+
 	# enemies touching us make us angry
 	for e in target.get_node("PushArea").get_overlapping_bodies():
 		target.add_anger(delta * 5)
