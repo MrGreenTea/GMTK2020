@@ -8,11 +8,14 @@ export(float, 0.1, 1000.0) var STRESS_PER_SECOND = 10.0
 export(int, 1, 1000) var MAX_STRESS = 100
 
 signal player_stressed
+var has_control = true
 
 func _ready():
 	$Stress.max_value = MAX_STRESS;
 
 func _physics_process(delta):
+	if not has_control:
+		return
 	var x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	var y = Input.get_action_strength("player_down") - Input.get_action_strength("player_up")
 	var direction = Vector2(x, y).normalized()
@@ -24,6 +27,12 @@ func _physics_process(delta):
 	if stress >= MAX_STRESS:
 		emit_signal("player_stressed")
 		print("I'm stressed as fuck")
+		has_control = false
+		$Anger.trigger()
+		$Stress.hide()
+		yield($Anger, "emotion_resided")
+		has_control = true
+		$Stress.show()
 		stress = 0
 	if Input.is_action_just_pressed("player_interact"):
 		var object = $ForwardRay.get_collider()
