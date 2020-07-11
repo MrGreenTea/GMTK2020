@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/ground_06.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://enemy/policeman/Policeman.tscn" type="PackedScene" id=9]
 [ext_resource path="res://shards.png" type="Texture" id=10]
 [ext_resource path="res://Transition.tscn" type="PackedScene" id=11]
+[ext_resource path="res://font.tres" type="DynamicFont" id=12]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -76,6 +77,25 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Label
+
+
+var time = 0
+
+
+func seconds_to_clock(seconds: float):
+	var hours = floor(seconds / 3600.0)
+	seconds -= hours * 3600
+	var minutes = floor(seconds / 60.0)
+	seconds = floor(seconds - minutes * 60)
+	return \"%02d:%02d:%02d\" % [hours, minutes, seconds]
+
+func _process(delta):
+	time += delta
+	text = seconds_to_clock(time)
+"
 
 [node name="Node2D" type="Node2D"]
 material = SubResource( 2 )
@@ -185,4 +205,22 @@ collision_mask = 17
 [node name="Overlay" type="CanvasLayer" parent="."]
 
 [node name="Transition" parent="Overlay" instance=ExtResource( 11 )]
+
+[node name="Panel" type="Panel" parent="Overlay"]
+margin_right = 256.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Overlay/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 12 )
+align = 1
+valign = 1
+script = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Target" to="YSort/Player" method="_on_Target_body_entered"]
