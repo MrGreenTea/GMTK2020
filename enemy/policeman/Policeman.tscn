@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/policeman/Policeman.gd" type="Script" id=2]
+[ext_resource path="res://enemy/policeman/Policeman.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.5483, 53.4128 )
+
+[node name="Policeman" groups=[
+"policemen",
+] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+SPEED = 192.0
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2( 0.335758, 0.335758 )
+texture = ExtResource( 3 )
+
+[node name="ArrestRange" type="Area2D" parent="." index="3"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrestRange" index="0"]
+shape = SubResource( 1 )
+
+[node name="ArrestCountdown" type="Timer" parent="." index="4"]
+wait_time = 3.0
+[connection signal="body_entered" from="ArrestRange" to="." method="_on_ArrestRange_body_entered"]
+[connection signal="body_exited" from="ArrestRange" to="." method="_on_ArrestRange_body_exited"]
+[connection signal="timeout" from="ArrestCountdown" to="." method="_on_ArrestCountdown_timeout"]
