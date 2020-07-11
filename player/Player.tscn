@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/player_01.png" type="Texture" id=2]
@@ -8,6 +8,19 @@
 [ext_resource path="res://emotions/emote_dots1.png" type="Texture" id=6]
 [ext_resource path="res://emotions/emote_anger.png" type="Texture" id=7]
 [ext_resource path="res://emotions/emote_alert.png" type="Texture" id=8]
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.116129 )
+colors = PoolColorArray( 0.819608, 0.00784314, 0.00784314, 0.921569, 1, 0.492188, 0, 0.607843 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 0.337255, 0, 1, 0.807843, 0.219608, 0, 1, 0.568627 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
@@ -23,11 +36,37 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 0, 0, 0.792157, 1, 0.462745, 0, 0.333333 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 0.2
+color_ramp = SubResource( 6 )
+
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 "visible_people",
 ]]
 script = ExtResource( 1 )
+ANGER_GRADIENT = SubResource( 8 )
+FEAR_GRADIENT = SubResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 5 )
@@ -58,6 +97,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
 position = Vector2( -1, 0 )
 shape = SubResource( 3 )
+
+[node name="EmotionParticles" type="Particles2D" parent="."]
+amount = 24
+process_material = SubResource( 4 )
 
 [editable path="ControlManager"]
 
