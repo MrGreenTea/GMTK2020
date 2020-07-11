@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/player_01.png" type="Texture" id=2]
@@ -7,13 +7,14 @@
 [ext_resource path="res://emotions/emote_dots3.png" type="Texture" id=5]
 [ext_resource path="res://emotions/emote_dots1.png" type="Texture" id=6]
 [ext_resource path="res://emotions/emote_anger.png" type="Texture" id=7]
+[ext_resource path="res://emotions/emote_alert.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0

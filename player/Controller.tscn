@@ -1,13 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://player/PlayerController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/node_fsm_plugin/fsm_node.gd" type="Script" id=2]
 [ext_resource path="res://emotions/Anger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://emotions/Fear.gd" type="Script" id=4]
 
 [node name="ControlManager" type="Node"]
 script = ExtResource( 2 )
 initial_state = "PlayerController"
 
 [node name="PlayerController" parent="." instance=ExtResource( 1 )]
+MAX_STRESS = 4.0
 
 [node name="Anger" parent="." instance=ExtResource( 3 )]
+
+[node name="Fear" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="Fear"]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="Fear/Timer" to="Fear" method="_on_Timer_timeout"]

@@ -120,6 +120,18 @@ position = Vector2( 574.735, 281.454 )
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 160, 160 )
 
-[node name="Enemy" parent="YSort" instance=ExtResource( 4 )]
+[node name="Enemy" parent="YSort" groups=[
+"enemies",
+] instance=ExtResource( 4 )]
 position = Vector2( 96, 544 )
+
+[node name="Enemy2" parent="YSort" groups=[
+"enemies",
+] instance=ExtResource( 4 )]
+position = Vector2( 896, 448 )
+
+[node name="Enemy3" parent="YSort" groups=[
+"enemies",
+] instance=ExtResource( 4 )]
+position = Vector2( 640, 192 )
 [connection signal="body_entered" from="Target" to="YSort/Player" method="_on_Target_body_entered"]
