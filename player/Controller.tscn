@@ -10,6 +10,7 @@ script = ExtResource( 2 )
 initial_state = "PlayerController"
 
 [node name="PlayerController" parent="." instance=ExtResource( 1 )]
+MAX_STRESS = 4.0
 
 [node name="Anger" parent="." instance=ExtResource( 3 )]
 
