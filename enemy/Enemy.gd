@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Enemy
 
 export var SPEED = 128.0
 

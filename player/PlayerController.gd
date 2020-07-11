@@ -26,6 +26,10 @@ func on_physics_process(target: Player, delta: float) -> void:
 		var dist = (e.position - target.position).length()
 		if dist <= 192:
 			var additional_fear = (100 / dist) * delta / sqrt(len(enemies)) * 0.25
+			
+			target.stress += delta
+			if e.is_in_group("policemen"):
+				additional_fear *= 5
 			target.add_fear(additional_fear)
 	# enemies touching us make us angry
 	for e in target.get_node("PushArea").get_overlapping_bodies():

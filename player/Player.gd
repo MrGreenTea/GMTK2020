@@ -31,3 +31,6 @@ func add_fear(amount: float):
 
 func _on_Timer_timeout():
 	$EmotionParticles.hide()
+	
+func _on_Arrested():
+	print("YOU WERE ARRESTED.")
