@@ -232,5 +232,5 @@ __meta__ = {
 [node name="GameOver" parent="Overlay" instance=ExtResource( 13 )]
 visible = false
 [connection signal="body_entered" from="Target" to="YSort/Player" method="_on_Target_body_entered"]
-[connection signal="game_over" from="YSort/Player" to="Overlay/GameOver" method="_on_Player_game_over"]
 [connection signal="game_over" from="YSort/Player" to="Overlay/Timer/TimerLabel" method="_on_Player_game_over"]
+[connection signal="game_over" from="YSort/Player" to="Overlay/GameOver" method="_on_Player_game_over"]
