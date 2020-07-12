@@ -27,8 +27,6 @@ func adjust_particles(node: Particles2D, amount: float, timer: Timer):
 		var color: Color = node.process_material.color_ramp.gradient.get_color(1)
 		var prev = color.a
 		color.a = clamp(amount, 0, 1)
-		if "Fear" in node.name:
-			print("prev:", prev, "now:", color.a)
 		node.process_material.color_ramp.gradient.set_color(1, color)
 		timer.start()
 
