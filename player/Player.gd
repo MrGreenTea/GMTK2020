@@ -21,17 +21,6 @@ func _on_Target_body_entered(body):
 	if body == self:
 		show_game_over("reached_target")
 
-func adjust_particles(node: Particles2D, amount: float, timer: Timer):
-	if amount > 0:
-		node.process_material.scale = max(clamp(amount, 0.0, 1.0) * 100.0, 2.0)
-		node.show()
-		var color: Color = node.process_material.color_ramp.gradient.get_color(1)
-		var prev = color.a
-		color.a = clamp(amount, 0, 1)
-		node.process_material.color_ramp.gradient.set_color(1, color)
-		print(color.a)
-		node.process_material.scale = max(color.a * 100.0, 2.0)
-		timer.start()
 
 func _physics_process(delta):
 	anger += _anger_to_add
@@ -42,6 +31,12 @@ func _physics_process(delta):
 	adjust_particles($FearParticles, _fear_to_add, $FearTimer)
 	_fear_to_add = 0
 
+
+func adjust_particles(node: Particles2D, amount: float, timer: Timer):
+	if amount > 0:
+		node.process_material.scale = max(clamp(amount, 0.0, 1.0) * 100.0, 2.0)
+		node.show()
+		timer.start()
 
 func add_anger(amount: float):
 	_anger_to_add += amount
