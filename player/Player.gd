@@ -11,6 +11,7 @@ export(GradientTexture) var ANGER_GRADIENT
 export(GradientTexture) var FEAR_GRADIENT
 
 onready var frames = $PlayerFrame
+var game_is_over = false
 
 signal game_over(type)
 
@@ -55,7 +56,9 @@ func move(direction: Vector2):
 	return move_and_slide(direction)
 
 func show_game_over(type):
-	emit_signal("game_over", type)
-	get_node("/root/Node2D/Overlay/Transition").transition_out()
-	yield(get_node("/root/Node2D/Overlay/Transition/AnimationPlayer"),"animation_finished") 
-	get_node("/root/Node2D/Overlay/GameOver").visible = true
+	if not game_is_over:
+		game_is_over = true
+		emit_signal("game_over", type)
+		get_node("/root/Node2D/Overlay/Transition").transition_out()
+		yield(get_node("/root/Node2D/Overlay/Transition/AnimationPlayer"),"animation_finished") 
+		get_node("/root/Node2D/Overlay/GameOver").visible = true

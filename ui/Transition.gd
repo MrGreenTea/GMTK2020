@@ -11,7 +11,6 @@ func transition_in():
 	player.play("transition_out")
 
 func transition_out():
-	print("PLAX")
 	visible = true
 	player.play_backwards("transition_out")
 
