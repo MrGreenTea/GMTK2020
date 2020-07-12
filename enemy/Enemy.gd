@@ -12,6 +12,7 @@ const follow_tolerance = 10
 onready var frames = $EnemyFrame
 
 func _ready():
+	#get_node("AnimatedSprite").hide()
 	pass
 
 func _on_Property_destroyed():

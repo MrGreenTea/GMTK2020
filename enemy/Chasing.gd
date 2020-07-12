@@ -8,5 +8,5 @@ func on_physics_process(target: Enemy, delta: float) -> void:
 			var direction = (target_node.follow_target - target_node.position).normalized()
 			target_node.move(target_node.SPEED * direction)
 		else:
+			# animate lost player status
 			go_to("Idle")
-
