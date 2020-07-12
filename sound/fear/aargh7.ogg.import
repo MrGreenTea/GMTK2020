@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/aargh7.ogg-5a2a25f4326b2840a912450970ba6713.oggstr"
+
+[deps]
+
+source_file="res://sound/fear/aargh7.ogg"
+dest_files=[ "res://.import/aargh7.ogg-5a2a25f4326b2840a912450970ba6713.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

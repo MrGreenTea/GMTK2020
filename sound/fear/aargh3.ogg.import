@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/aargh3.ogg-42189cdcfc250266d0dc6e5cfc82ceda.oggstr"
+
+[deps]
+
+source_file="res://sound/fear/aargh3.ogg"
+dest_files=[ "res://.import/aargh3.ogg-42189cdcfc250266d0dc6e5cfc82ceda.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

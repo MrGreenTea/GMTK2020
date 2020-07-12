@@ -6,6 +6,12 @@ func on_enter(target: Player):
 	$Timer.start()
 	target.get_node("AnimatedSprite").frame = 4
 	target.fear = 0
+	var effect = randi() % 9
+	var sound_effect = "res://sound/fear/aargh%d.ogg" % effect
+	if effect == 8:
+		sound_effect = "res://sound/fear/Wilhelm_Scream.ogg"
+	$AudioStreamPlayer.stream = load(sound_effect)
+	$AudioStreamPlayer.play()
 
 func on_physics_process(target: Player, delta: float):
 	var enemies = get_tree().get_nodes_in_group("enemies")
