@@ -46,7 +46,7 @@ func move(direction: Vector2):
 		else:
 			frames.animation = "UP"
 	
-	if direction.length_squared() > 4:
+	if direction.length_squared() > 1:
 		frames.playing = true
 	
 	return move_and_slide(direction)

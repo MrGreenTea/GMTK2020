@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ragedave_music_main_v2.ogg-d7b905aa7bd56950794e4993ed19ec2d.oggstr"
+
+[deps]
+
+source_file="res://sound/ragedave_music_main_v2.ogg"
+dest_files=[ "res://.import/ragedave_music_main_v2.ogg-d7b905aa7bd56950794e4993ed19ec2d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
