@@ -6,9 +6,11 @@ var stress = 0
 export var MAX_STRESS = 10.0
 var anger = 0
 var fear = 0
-onready var _particles_material: ParticlesMaterial = $EmotionParticles.process_material
-export(GradientTexture) var ANGER_GRADIENT
-export(GradientTexture) var FEAR_GRADIENT
+
+const PARTICLE_SPEED = 1000.0
+
+var _anger_to_add = 0.0
+var _fear_to_add = 0.0
 
 onready var frames = $PlayerFrame
 var game_is_over = false
@@ -19,22 +21,34 @@ func _on_Target_body_entered(body):
 	if body == self:
 		show_game_over("reached_target")
 
+func adjust_particles(node: Particles2D, amount: float, timer: Timer):
+	if amount > 0:
+		node.show()
+		var color: Color = node.process_material.color_ramp.gradient.get_color(1)
+		var prev = color.a
+		color.a = clamp(amount, 0, 1)
+		if "Fear" in node.name:
+			print("prev:", prev, "now:", color.a)
+		node.process_material.color_ramp.gradient.set_color(1, color)
+		timer.start()
+
+func _physics_process(delta):
+	anger += _anger_to_add
+	adjust_particles($AngerParticles, _anger_to_add, $AngerTimer)
+	_anger_to_add = 0
+	
+	fear += _fear_to_add
+	adjust_particles($FearParticles, _fear_to_add, $FearTimer)
+	_fear_to_add = 0
+
+
 func add_anger(amount: float):
-	anger += amount
+	_anger_to_add += amount
 	stress += amount
-	_particles_material.color_ramp = ANGER_GRADIENT
-	$EmotionParticles.show()
-	$Timer.start()
 
 func add_fear(amount: float):
-	fear += amount
+	_fear_to_add += amount
 	stress += amount
-	_particles_material.color_ramp = FEAR_GRADIENT
-	$EmotionParticles.show()
-	$Timer.start()
-
-func _on_Timer_timeout():
-	$EmotionParticles.hide()
 	
 func _on_Arrested():
 	show_game_over("arrested")
@@ -60,3 +74,11 @@ func show_game_over(type):
 		get_node("/root/Node2D/Overlay/Transition").transition_out()
 		yield(get_node("/root/Node2D/Overlay/Transition/AnimationPlayer"),"animation_finished") 
 		get_node("/root/Node2D/Overlay/GameOver").visible = true
+
+
+func _on_FearTimer_timeout():
+	$FearParticles.hide()
+
+
+func _on_AngerTimer_timeout():
+	$AngerParticles.hide()
