@@ -119,66 +119,64 @@ position = Vector2( 864, 160 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Wood Crate" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 704, 64 )
+position = Vector2( 736, 96 )
 
 [node name="Protected By Enemy" parent="YSort/Wood Crate" instance=ExtResource( 8 )]
 my_owner = NodePath("../../Enemy2")
 
 [node name="Wood Crate2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 704, 128 )
+position = Vector2( 736, 160 )
 physics_material_override = null
 
 [node name="Wood Crate3" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 704, 192 )
+position = Vector2( 736, 224 )
 physics_material_override = null
 
 [node name="Wood Crate7" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 704, 256 )
+position = Vector2( 736, 288 )
 physics_material_override = null
 
 [node name="Wood Crate4" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 768, 256 )
+position = Vector2( 800, 288 )
 physics_material_override = null
 
 [node name="Wood Crate5" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 832, 256 )
+position = Vector2( 864, 288 )
 physics_material_override = null
 
 [node name="Wood Crate6" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 896, 256 )
+position = Vector2( 928, 288 )
 physics_material_override = null
 
 [node name="Wood Crate8" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 65.1531, 278.931 )
+position = Vector2( 96, 288 )
 physics_material_override = null
 
 [node name="Protected By Enemy" parent="YSort/Wood Crate8" instance=ExtResource( 8 )]
 my_owner = NodePath("../../Enemy")
 
 [node name="Wood Crate9" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 128.22, 279.772 )
+position = Vector2( 159.067, 288.841 )
 physics_material_override = null
 
 [node name="Wood Crate10" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 191.287, 279.772 )
+position = Vector2( 222.134, 288.841 )
 physics_material_override = null
 
 [node name="Wood Crate11" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 253.513, 279.772 )
+position = Vector2( 284.36, 288.841 )
 physics_material_override = null
 
 [node name="Wood Crate12" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 450.283, 281.454 )
+position = Vector2( 480.509, 288.841 )
 physics_material_override = null
 
 [node name="Wood Crate13" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 512.509, 281.454 )
+position = Vector2( 542.735, 288.841 )
 physics_material_override = null
 
-[node name="Wood Crate15" parent="YSort" instance=ExtResource( 6 )]
-
 [node name="Wood Crate14" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 574.735, 281.454 )
+position = Vector2( 604.961, 288.841 )
 
 [node name="Protected By Enemy" parent="YSort/Wood Crate14" instance=ExtResource( 8 )]
 my_owner = NodePath("../../Policeman")
