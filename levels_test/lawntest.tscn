@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment/forbidden_lawn/EnemyLawnPolygon.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 417.885, 289.237 )
+
+[node name="Lawn" parent="." instance=ExtResource( 3 )]
+collision_layer = 17
+collision_mask = 2147483665
+my_owner = NodePath("../Enemy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lawn"]
+light_mask = 0
+polygon = PoolVector2Array( 179.803, -3.62167, 153.583, 207.64, 391.065, 199.399, 393.312, -6.61829 )
+[connection signal="body_entered" from="Lawn" to="Lawn" method="_on_Lawn_body_entered"]

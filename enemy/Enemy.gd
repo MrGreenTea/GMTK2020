@@ -20,6 +20,7 @@ func _on_Property_destroyed():
 	$EnemyController.go_to("Chasing")
 
 func _on_Lawn_intrusion(owner):
+	print("lawn itrusion checkW")
 	if owner == self:
 		print("You entered my laaaaawwwn!")
 		is_aggressive = true
