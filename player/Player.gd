@@ -50,6 +50,12 @@ func _on_Arrested():
 	show_game_over("arrested")
 
 func move(direction: Vector2):
+	if not $AudioStreamPlayer2D.playing:
+		var foot_step = "res://player/footstep_wood_00%d.ogg" % (randi() % 5)
+		print(foot_step)
+		var sound = load(foot_step)
+		$AudioStreamPlayer2D.play()
+		
 	if abs(direction.x) > abs(direction.y):
 		if direction.x < 0:
 			frames.animation = "LEFT"
