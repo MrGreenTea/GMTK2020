@@ -28,6 +28,8 @@ func adjust_particles(node: Particles2D, amount: float, timer: Timer):
 		var prev = color.a
 		color.a = clamp(amount, 0, 1)
 		node.process_material.color_ramp.gradient.set_color(1, color)
+		print(color.a)
+		node.process_material.scale = max(color.a * 100.0, 2.0)
 		timer.start()
 
 func _physics_process(delta):
