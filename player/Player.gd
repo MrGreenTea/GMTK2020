@@ -23,6 +23,7 @@ func _on_Target_body_entered(body):
 
 func adjust_particles(node: Particles2D, amount: float, timer: Timer):
 	if amount > 0:
+		node.process_material.scale = max(clamp(amount, 0.0, 1.0) * 100.0, 2.0)
 		node.show()
 		var color: Color = node.process_material.color_ramp.gradient.get_color(1)
 		var prev = color.a
