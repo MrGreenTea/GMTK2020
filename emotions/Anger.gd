@@ -2,10 +2,7 @@ extends State
 
 export(float) var rage_velocity = 512
 
-var explode_animation
-
-func _ready():
-	explode_animation = load("res://environment/destructible_objects/wooden_box/wooden_box_destroyed.tscn")
+var explode_animation = preload("res://environment/destructible_objects/wooden_box/wooden_box_destroyed.tscn")
 
 func _on_Tween_tween_all_completed():
 	go_to("PlayerController")
@@ -19,6 +16,7 @@ func on_enter(target: Player):
 		var offset = Vector2(rand_range(-1.0, 1.0), rand_range(-1.0, 1.0)).normalized() * rage_velocity
 		$Tween.interpolate_method(target, "move", Vector2.ZERO, offset, 0.3, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, i * 0.3)
 	$Tween.start()
+	$Rage.play()
 
 func on_physics_process(target: Player, delta: float) -> void:
 	for o in target.get_node("DestructionArea").get_overlapping_bodies():

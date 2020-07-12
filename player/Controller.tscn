@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player/PlayerController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/node_fsm_plugin/fsm_node.gd" type="Script" id=2]
 [ext_resource path="res://emotions/Anger.tscn" type="PackedScene" id=3]
 [ext_resource path="res://emotions/Fear.gd" type="Script" id=4]
+[ext_resource path="res://sound/fear/Wilhelm_Scream.ogg" type="AudioStream" id=5]
 
 [node name="ControlManager" type="Node"]
 script = ExtResource( 2 )
@@ -19,4 +20,7 @@ script = ExtResource( 4 )
 [node name="Timer" type="Timer" parent="Fear"]
 wait_time = 2.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Fear"]
+stream = ExtResource( 5 )
 [connection signal="timeout" from="Fear/Timer" to="Fear" method="_on_Timer_timeout"]
