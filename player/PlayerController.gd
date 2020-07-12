@@ -14,10 +14,14 @@ func on_physics_process(target: Player, delta: float) -> void:
 	var x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	var y = Input.get_action_strength("player_down") - Input.get_action_strength("player_up")
 	var direction = Vector2(x, y).normalized()
+	var player_frames: AnimatedSprite = target.get_node("PlayerFrame")
 	if direction.length_squared() > 0.1:
-		var movement = target.move_and_slide(direction * target.SPEED)
+		var movement = target.move(direction * target.SPEED)
 		if movement.length() <= 0.1:
 			target.add_anger(delta)
+	else:
+		player_frames.frame = 0
+		player_frames.playing = false
 	target.stress += delta
 	var frame = round(float(target.stress) / target.MAX_STRESS * 2)
 	target.get_node("AnimatedSprite").frame = frame

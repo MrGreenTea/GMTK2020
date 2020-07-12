@@ -10,6 +10,8 @@ onready var _particles_material: ParticlesMaterial = $EmotionParticles.process_m
 export(GradientTexture) var ANGER_GRADIENT
 export(GradientTexture) var FEAR_GRADIENT
 
+onready var frames = $PlayerFrame
+
 
 func _on_Target_body_entered(body):
 	if body == self:
@@ -35,3 +37,17 @@ func _on_Timer_timeout():
 	
 func _on_Arrested():
 	print("YOU WERE ARRESTED.")
+
+func move(direction: Vector2):
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			frames.animation = "LEFT"
+		else:
+			frames.animation = "RIGHT"
+	else:
+		if direction.y > 0:
+			frames.animation = "DOWN"
+		else:
+			frames.animation = "UP"
+	frames.playing = true
+	return move_and_slide(direction)
