@@ -10,7 +10,7 @@
 [ext_resource path="res://emotions/emote_alert.png" type="Texture" id=8]
 [ext_resource path="res://sound/ragedave_music_main_v2.ogg" type="AudioStream" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 20, 20 )
 
 [sub_resource type="SpriteFrames" id=2]
@@ -24,13 +24,37 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=11]
 colors = PoolColorArray( 0.639216, 0, 1, 0.847059, 0, 0.882353, 1, 0.564706 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+scale_random = 0.2
+color_ramp = SubResource( 12 )
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 0.1875, 0, 0.792157, 1, 0.703125, 0, 0.333333 )
 
 [sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=13]
 lifetime_randomness = 0.2
 emission_shape = 1
 emission_sphere_radius = 1.0
@@ -109,15 +133,13 @@ shape = SubResource( 3 )
 
 [node name="FearParticles" type="Particles2D" parent="."]
 visible = false
-scale = Vector2( 2, 2 )
 amount = 40
-process_material = SubResource( 6 )
+process_material = SubResource( 10 )
 
 [node name="AngerParticles" type="Particles2D" parent="."]
 visible = false
-scale = Vector2( 2, 2 )
 amount = 40
-process_material = SubResource( 9 )
+process_material = SubResource( 13 )
 
 [node name="FearTimer" type="Timer" parent="."]
 process_mode = 0
