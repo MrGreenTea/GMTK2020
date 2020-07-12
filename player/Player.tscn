@@ -1,24 +1,13 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
+[ext_resource path="res://player/MovementAnimations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://emotions/emote_dots2.png" type="Texture" id=3]
 [ext_resource path="res://player/Controller.tscn" type="PackedScene" id=4]
 [ext_resource path="res://emotions/emote_dots3.png" type="Texture" id=5]
 [ext_resource path="res://emotions/emote_dots1.png" type="Texture" id=6]
 [ext_resource path="res://emotions/emote_anger.png" type="Texture" id=7]
 [ext_resource path="res://emotions/emote_alert.png" type="Texture" id=8]
-[ext_resource path="res://player/frames/player_09.png" type="Texture" id=9]
-[ext_resource path="res://player/frames/player_07.png" type="Texture" id=10]
-[ext_resource path="res://player/frames/player_10.png" type="Texture" id=11]
-[ext_resource path="res://player/frames/player_05.png" type="Texture" id=12]
-[ext_resource path="res://player/frames/player_06.png" type="Texture" id=13]
-[ext_resource path="res://player/frames/player_08.png" type="Texture" id=14]
-[ext_resource path="res://player/frames/player_18.png" type="Texture" id=15]
-[ext_resource path="res://player/frames/player_19.png" type="Texture" id=16]
-[ext_resource path="res://player/frames/player_20.png" type="Texture" id=17]
-[ext_resource path="res://player/frames/player_17.png" type="Texture" id=18]
-[ext_resource path="res://player/frames/player_21.png" type="Texture" id=19]
-[ext_resource path="res://player/frames/player_22.png" type="Texture" id=20]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.116129 )
@@ -35,29 +24,6 @@ gradient = SubResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 20, 20 )
-
-[sub_resource type="SpriteFrames" id=11]
-animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "UP",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "LEFT",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "RIGHT",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "DOWN",
-"speed": 10.0
-} ]
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -106,9 +72,7 @@ FEAR_GRADIENT = SubResource( 4 )
 position = Vector2( 0, 5 )
 shape = SubResource( 5 )
 
-[node name="PlayerFrame" type="AnimatedSprite" parent="."]
-frames = SubResource( 11 )
-animation = "DOWN"
+[node name="PlayerFrame" parent="." instance=ExtResource( 2 )]
 
 [node name="ControlManager" parent="." instance=ExtResource( 4 )]
 target = NodePath("..")

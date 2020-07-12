@@ -9,6 +9,7 @@ var follow_target = null
 var follow_target_last_position = null
 
 const follow_tolerance = 10
+onready var frames = $EnemyFrame
 
 func _ready():
 	pass
@@ -31,3 +32,21 @@ func _on_Eyesight_player_noticed(node):
 
 func _on_Eyesight_player_lost(node):
 	$EnemyController.go_to("Idle")
+
+
+func move(direction: Vector2):
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			frames.animation = "LEFT"
+		else:
+			frames.animation = "RIGHT"
+	else:
+		if direction.y > 0:
+			frames.animation = "DOWN"
+		else:
+			frames.animation = "UP"
+	
+	if direction.length_squared() > 4:
+		frames.playing = true
+	
+	return move_and_slide(direction)
