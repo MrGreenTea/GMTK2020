@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/ground_06.png" type="Texture" id=2]
@@ -13,6 +13,33 @@
 [ext_resource path="res://ui/Transition.tscn" type="PackedScene" id=11]
 [ext_resource path="res://styles/fonts/font.tres" type="DynamicFont" id=12]
 [ext_resource path="res://ui/GameOver.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/Isometric/bedSingle_SE.png" type="Texture" id=14]
+[ext_resource path="res://environment/Isometric/toaster_SW.png" type="Texture" id=15]
+[ext_resource path="res://environment/Isometric/toilet_NE.png" type="Texture" id=16]
+[ext_resource path="res://environment/Isometric/speakerSmall_SW.png" type="Texture" id=17]
+[ext_resource path="res://environment/Isometric/televisionVintage_SW.png" type="Texture" id=18]
+[ext_resource path="res://environment/Isometric/cabinetTelevision_SW.png" type="Texture" id=19]
+[ext_resource path="res://environment/Isometric/pottedPlant_SE.png" type="Texture" id=20]
+[ext_resource path="res://environment/Isometric/kitchenFridgeBuiltIn_SE.png" type="Texture" id=21]
+[ext_resource path="res://environment/Isometric/kitchenCabinetDrawer_SW.png" type="Texture" id=22]
+[ext_resource path="res://environment/Isometric/trashcan_NW.png" type="Texture" id=23]
+[ext_resource path="res://environment/Isometric/kitchenCabinetDrawer_SE.png" type="Texture" id=24]
+[ext_resource path="res://environment/Isometric/kitchenSink_SW.png" type="Texture" id=25]
+[ext_resource path="res://environment/Isometric/bathroomMirror_SW.png" type="Texture" id=26]
+[ext_resource path="res://environment/Isometric/kitchenSink_SE.png" type="Texture" id=27]
+[ext_resource path="res://environment/Isometric/kitchenStoveElectric_SW.png" type="Texture" id=28]
+[ext_resource path="res://environment/Isometric/laptop_SW.png" type="Texture" id=29]
+[ext_resource path="res://environment/Isometric/shower_SW.png" type="Texture" id=30]
+[ext_resource path="res://environment/Isometric/pottedPlant_NE.png" type="Texture" id=31]
+[ext_resource path="res://environment/Isometric/plantSmall1_NW.png" type="Texture" id=32]
+[ext_resource path="res://environment/Isometric/lampSquareFloor_NE.png" type="Texture" id=33]
+[ext_resource path="res://environment/Isometric/kitchenFridgeSmall_SE.png" type="Texture" id=34]
+[ext_resource path="res://environment/Isometric/televisionAntenna_SW.png" type="Texture" id=35]
+[ext_resource path="res://environment/Isometric/kitchenCoffeeMachine_SW.png" type="Texture" id=36]
+[ext_resource path="res://environment/Isometric/bathroomSink_SW.png" type="Texture" id=37]
+[ext_resource path="res://environment/Isometric/loungeDesignChair_NW.png" type="Texture" id=38]
+[ext_resource path="res://environment/Isometric/washer_SE.png" type="Texture" id=39]
+[ext_resource path="res://environment/Isometric/rugRound_NE.png" type="Texture" id=40]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -112,7 +139,7 @@ format = 1
 tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 65536, 1, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 1, 0, 131072, 1, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 1, 0, 196608, 1, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 1, 0, 262144, 1, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 1, 0, 327680, 1, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 1, 0, 393216, 1, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 1, 0, 458752, 1, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 1, 0, 524288, 1, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0 )
 
 [node name="AreaCharger" parent="." instance=ExtResource( 7 )]
-position = Vector2( 384, 192 )
+position = Vector2( 315.135, 100.886 )
 
 [node name="Target" parent="." groups=[
 "invisible_raycast",
@@ -152,14 +179,14 @@ position = Vector2( 928, 288 )
 physics_material_override = null
 
 [node name="Wood Crate8" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 96, 288 )
+position = Vector2( 112, 287 )
 physics_material_override = null
 
 [node name="Protected By Enemy" parent="YSort/Wood Crate8" instance=ExtResource( 8 )]
 my_owner = NodePath("../../Enemy")
 
 [node name="Wood Crate9" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 159.067, 288.841 )
+position = Vector2( 175.067, 287.841 )
 physics_material_override = null
 
 [node name="Wood Crate10" parent="YSort" instance=ExtResource( 6 )]
@@ -170,16 +197,50 @@ physics_material_override = null
 position = Vector2( 284.36, 288.841 )
 physics_material_override = null
 
+[node name="speakerSmall_SW" type="Sprite" parent="YSort"]
+position = Vector2( 565.032, 102.105 )
+texture = ExtResource( 17 )
+
+[node name="pottedPlant_SE" type="Sprite" parent="YSort"]
+position = Vector2( 92, 225.043 )
+texture = ExtResource( 20 )
+offset = Vector2( 3.73849, -11.9745 )
+
+[node name="pottedPlant_SE2" type="Sprite" parent="YSort"]
+position = Vector2( 92, 434.043 )
+texture = ExtResource( 20 )
+offset = Vector2( 3.73849, -11.9745 )
+
+[node name="cabinetTelevision_SW" type="Sprite" parent="YSort"]
+position = Vector2( 618.492, 142.295 )
+texture = ExtResource( 19 )
+
+[node name="televisionVintage_SW" type="Sprite" parent="YSort/cabinetTelevision_SW"]
+position = Vector2( 4.75684, -29.7302 )
+texture = ExtResource( 18 )
+
+[node name="televisionAntenna_SW" type="Sprite" parent="YSort/cabinetTelevision_SW/televisionVintage_SW"]
+position = Vector2( -0.953796, -20.8688 )
+texture = ExtResource( 35 )
+
+[node name="bedSingle_SE" type="Sprite" parent="YSort"]
+position = Vector2( 166.388, 127.043 )
+texture = ExtResource( 14 )
+
 [node name="Wood Crate12" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 480.509, 288.841 )
+position = Vector2( 480.509, 339.695 )
 physics_material_override = null
 
 [node name="Wood Crate13" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 542.735, 288.841 )
+position = Vector2( 542.735, 340.755 )
 physics_material_override = null
 
+[node name="lampSquareFloor_NE" type="Sprite" parent="YSort"]
+position = Vector2( 684.804, 119.242 )
+texture = ExtResource( 33 )
+
 [node name="Wood Crate14" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 604.961, 288.841 )
+position = Vector2( 603.902, 339.695 )
 
 [node name="Protected By Enemy" parent="YSort/Wood Crate14" instance=ExtResource( 8 )]
 my_owner = NodePath("../../Policeman")
@@ -197,6 +258,10 @@ position = Vector2( 896, 448 )
 collision_layer = 17
 collision_mask = 17
 
+[node name="speakerSmall_SW2" type="Sprite" parent="YSort"]
+position = Vector2( 678.196, 174.782 )
+texture = ExtResource( 17 )
+
 [node name="Policeman" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 702.661, 493.883 )
 SPEED = 160.0
@@ -205,6 +270,89 @@ SPEED = 160.0
 position = Vector2( 640, 192 )
 collision_layer = 17
 collision_mask = 17
+
+[node name="kitchenFridgeSmall_SE" type="Sprite" parent="YSort"]
+position = Vector2( 126.039, 401.8 )
+texture = ExtResource( 34 )
+
+[node name="kitchenCoffeeMachine_SW" type="Sprite" parent="YSort/kitchenFridgeSmall_SE"]
+position = Vector2( -2.03943, -36.7998 )
+texture = ExtResource( 36 )
+
+[node name="toaster_SW" type="Sprite" parent="YSort/kitchenFridgeSmall_SE"]
+position = Vector2( 18.9606, -49.7998 )
+texture = ExtResource( 15 )
+
+[node name="kitchenFridgeBuiltIn_SE" type="Sprite" parent="YSort"]
+position = Vector2( 166, 349 )
+texture = ExtResource( 21 )
+
+[node name="trashcan_NW" type="Sprite" parent="YSort"]
+position = Vector2( 229.149, 354.178 )
+texture = ExtResource( 23 )
+
+[node name="kitchenCabinetDrawer_SW" type="Sprite" parent="YSort"]
+position = Vector2( 349, 440 )
+texture = ExtResource( 22 )
+
+[node name="kitchenStoveElectric_SW" type="Sprite" parent="YSort"]
+position = Vector2( 259, 376 )
+texture = ExtResource( 28 )
+
+[node name="kitchenCabinetDrawer_SE" type="Sprite" parent="YSort"]
+position = Vector2( -142, 571 )
+texture = ExtResource( 24 )
+
+[node name="laptop_SW" type="Sprite" parent="YSort/kitchenCabinetDrawer_SE"]
+position = Vector2( 491, -152 )
+texture = ExtResource( 29 )
+
+[node name="kitchenSink_SW" type="Sprite" parent="YSort"]
+position = Vector2( 304, 408 )
+texture = ExtResource( 25 )
+
+[node name="kitchenSink_SE" type="Sprite" parent="YSort"]
+position = Vector2( -88, 600 )
+texture = ExtResource( 27 )
+
+[node name="toilet_NE" type="Sprite" parent="YSort"]
+position = Vector2( 923, 488 )
+texture = ExtResource( 16 )
+
+[node name="pottedPlant_NE" type="Sprite" parent="YSort"]
+position = Vector2( 949, 455 )
+texture = ExtResource( 31 )
+
+[node name="rugRound_NE" type="Sprite" parent="YSort"]
+position = Vector2( 503, 231 )
+texture = ExtResource( 40 )
+
+[node name="loungeDesignChair_NW" type="Sprite" parent="YSort/rugRound_NE"]
+position = Vector2( 2, -11 )
+texture = ExtResource( 38 )
+
+[node name="bathroomMirror_SW" type="Sprite" parent="YSort"]
+position = Vector2( 925, 330 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 26 )
+
+[node name="bathroomSink_SW" type="Sprite" parent="YSort/bathroomMirror_SW"]
+position = Vector2( -6, 38 )
+texture = ExtResource( 37 )
+
+[node name="plantSmall1_NW" type="Sprite" parent="YSort"]
+position = Vector2( 936, 354 )
+texture = ExtResource( 32 )
+
+[node name="washer_SE" type="Sprite" parent="YSort"]
+position = Vector2( 773.5, 340.5 )
+scale = Vector2( 1.04991, 1.01807 )
+texture = ExtResource( 39 )
+
+[node name="shower_SW" type="Sprite" parent="."]
+position = Vector2( 719.5, 343.5 )
+scale = Vector2( 0.905173, 0.812183 )
+texture = ExtResource( 30 )
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 
