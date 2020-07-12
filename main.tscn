@@ -206,8 +206,6 @@ position = Vector2( 640, 192 )
 collision_layer = 17
 collision_mask = 17
 
-[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 13 )]
-
 [node name="Overlay" type="CanvasLayer" parent="."]
 
 [node name="Transition" parent="Overlay" instance=ExtResource( 11 )]
@@ -237,5 +235,3 @@ visible = false
 [connection signal="tree_exiting" from="YSort/Wood Crate9" to="AudioStreamPlayer2D" method="_on_Wood_Crate9_tree_exiting"]
 [connection signal="game_over" from="YSort/Player" to="Overlay/Timer/TimerLabel" method="_on_Player_game_over"]
 [connection signal="game_over" from="YSort/Player" to="Overlay/GameOver" method="_on_Player_game_over"]
-
-[editable path="Overlay/Transition"]

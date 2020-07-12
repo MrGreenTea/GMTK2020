@@ -3,7 +3,7 @@ extends ColorRect
 var timerLabel
 
 func _ready():
-	for node in get_node("../Timer").get_children():
+	for node in get_node("/root/Node2D/Overlay/Timer").get_children():
 		if node.name == "TimerLabel":
 			timerLabel = node
 			break
