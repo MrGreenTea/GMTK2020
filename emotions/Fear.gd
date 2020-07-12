@@ -13,7 +13,7 @@ func on_physics_process(target: Player, delta: float):
 	for e in enemies:
 		var distance = target.position - e.position
 		direction += distance / distance.length_squared()
-	target.move_and_slide(direction.normalized() * target.SPEED * SPEED_MULTIPLIER)
+	target.move(direction.normalized() * target.SPEED * SPEED_MULTIPLIER)
 
 
 func _on_Timer_timeout():
