@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/engine-loop-1-normalized.wav-a484fcec846bd09e128506c5b4f4a867.sample"
+
+[deps]
+
+source_file="res://sound/engine-loop-1-normalized.wav"
+dest_files=[ "res://.import/engine-loop-1-normalized.wav-a484fcec846bd09e128506c5b4f4a867.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
