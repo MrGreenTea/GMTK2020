@@ -97,6 +97,7 @@ player_interact={
 2d_physics/layer_3="destructible"
 2d_physics/layer_4="visible"
 2d_physics/layer_5="forbidden"
+2d_physics/layer_7="cars"
 
 [physics]
 

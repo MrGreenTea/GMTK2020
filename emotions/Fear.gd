@@ -1,6 +1,6 @@
 extends State
 
-export(float, 0.1, 10.0) var SPEED_MULTIPLIER = 1.5
+export(float, 0.1, 10.0) var SPEED_MULTIPLIER = 2.0
 
 func on_enter(target: Player):
 	$Timer.start()
