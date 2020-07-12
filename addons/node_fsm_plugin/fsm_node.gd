@@ -118,4 +118,6 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if active and current_state:
 		current_state.on_physics_process(_target_node, delta)
-		
+
+func _on_Player_game_over(type):
+	active = false

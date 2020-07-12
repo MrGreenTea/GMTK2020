@@ -10,9 +10,9 @@
 [ext_resource path="res://environment/destructible_objects/Protected By Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemy/policeman/Policeman.tscn" type="PackedScene" id=9]
 [ext_resource path="res://shards.png" type="Texture" id=10]
-[ext_resource path="res://Transition.tscn" type="PackedScene" id=11]
-[ext_resource path="res://font.tres" type="DynamicFont" id=12]
-[ext_resource path="res://environment/destructible_objects/wooden_box/AudioStreamPlayer2D.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/Transition.tscn" type="PackedScene" id=11]
+[ext_resource path="res://styles/fonts/font.tres" type="DynamicFont" id=12]
+[ext_resource path="res://ui/GameOver.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -84,7 +84,7 @@ script/source = "extends Label
 
 
 var time = 0
-
+var finish_time = 0
 
 func seconds_to_clock(seconds: float):
 	var hours = floor(seconds / 3600.0)
@@ -96,6 +96,9 @@ func seconds_to_clock(seconds: float):
 func _process(delta):
 	time += delta
 	text = seconds_to_clock(time)
+
+func _on_Player_game_over(type):
+	finish_time = time
 "
 
 [node name="Node2D" type="Node2D"]
@@ -210,14 +213,14 @@ collision_mask = 17
 [node name="Transition" parent="Overlay" instance=ExtResource( 11 )]
 visible = false
 
-[node name="Panel" type="Panel" parent="Overlay"]
+[node name="Timer" type="Panel" parent="Overlay"]
 margin_right = 256.0
 margin_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Overlay/Panel"]
+[node name="TimerLabel" type="Label" parent="Overlay/Timer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 12 )
@@ -227,5 +230,12 @@ script = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOver" parent="Overlay" instance=ExtResource( 13 )]
+visible = false
 [connection signal="body_entered" from="Target" to="YSort/Player" method="_on_Target_body_entered"]
 [connection signal="tree_exiting" from="YSort/Wood Crate9" to="AudioStreamPlayer2D" method="_on_Wood_Crate9_tree_exiting"]
+[connection signal="game_over" from="YSort/Player" to="Overlay/Timer/TimerLabel" method="_on_Player_game_over"]
+[connection signal="game_over" from="YSort/Player" to="Overlay/GameOver" method="_on_Player_game_over"]
+
+[editable path="Overlay/Transition"]

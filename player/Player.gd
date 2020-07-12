@@ -12,11 +12,15 @@ export(GradientTexture) var FEAR_GRADIENT
 
 onready var frames = $PlayerFrame
 
+signal game_over(type)
 
 func _on_Target_body_entered(body):
 	if body == self:
 		print("!!You Win!!")
+		emit_signal("game_over", "reached_target")
 		get_node("/root/Node2D/Overlay/Transition").transition_out()
+		yield(get_node("/root/Node2D/Overlay/Transition/AnimationPlayer"),"animation_finished") 
+		get_node("/root/Node2D/Overlay/GameOver").visible = true
 
 func add_anger(amount: float):
 	anger += amount
@@ -37,6 +41,7 @@ func _on_Timer_timeout():
 	
 func _on_Arrested():
 	print("YOU WERE ARRESTED.")
+	emit_signal("game_over", "arrested")
 
 func move(direction: Vector2):
 	if abs(direction.x) > abs(direction.y):
