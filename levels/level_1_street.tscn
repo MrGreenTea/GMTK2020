@@ -1,0 +1,263 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/ragedave_map_background.png" type="Texture" id=2]
+[ext_resource path="res://environment/Street.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://environment/forbidden_lawn/EnemyLawn.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Drawing" type="Sprite" parent="."]
+position = Vector2( -371.184, -6.39064 )
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 2 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1075.76, 2112.17 )
+
+[node name="Idle" parent="Enemy3/EnemyController" index="0"]
+idle_velocity = 0.0
+
+[node name="Street" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1425, 0 )
+
+[node name="Street2" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 597.537, 514.899 )
+
+[node name="Houses" type="RigidBody2D" parent="."]
+mode = 1
+can_sleep = false
+
+[node name="Outline" type="CollisionPolygon2D" parent="Houses"]
+visible = false
+polygon = PoolVector2Array( -552.113, 75.2362, -550.431, -141.715, -543.173, -141.736, -542.115, -439.415, -389.287, -440.164, -388, -732, -246, -731, -245, -481, 109, -482, 110, -731, 734.194, -731.301, 735.035, -510.986, 685.422, -509.304, 683.509, -144.793, 929.675, -143.604, 928.485, -63.9268, 929.328, 728.253, -1234.3, 729.84, -1229.54, 142.502, -1215.25, 140.914, -1212.08, -127.356, -1493.05, -125.769, -1496.22, 142.502, -1599.4, 142.502, -1597.81, 486.968, -1499.4, 488.555, -1497.81, 731.427, -1672.42, 733.015, -1672.49, -732.036, -1615.34, -732.036, -1615.34, -622.505, -1583.6, -622.505 )
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( -759.854, 588.063, -761.352, 161.046, -481.169, 158.049, -478.172, 35.1881, -153.039, 35.1881, -153.039, -17.2527, 128.643, -21.7476, 133.137, 262.931, 155.612, 262.931, 157.11, 597.053, -132.063, 598.552, -133.561, 267.426, -470.68, 264.429, -472.179, 588.063 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( -1496.5, 730.812, -1496.5, 485.201, -1597.95, 489.206, -1596.61, 144.817, -1499.17, 140.812, -1493.83, -123.486, -1218.85, -127.49, -1213.51, 143.482, -1234.87, 144.817, -1234.87, 732.146 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( -800.912, 76.9448, -548.928, 73.165, -550.188, -143.541, -542.628, -144.801, -542.628, -438.363, -387.658, -440.883, -389.384, -730.736, -708.163, -730.736, -707.041, -445.63, -780.001, -444.508, -776.634, -132.463, -799.083, -132.463 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( -1614.88, -731.41, -1612.36, -623.057, -1580.87, -621.797, -1580.87, -303.037, -1233.13, -300.517, -1230.61, -619.277, -1252.03, -619.277, -1250.77, -728.89 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( 735.193, -732.325, 736.382, -511.133, 685.246, -511.133, 685.246, -142.479, 931.412, -142.479, 931.412, -731.136 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( -408.86, 350.288, -408.86, 623.047, -152.939, 625.291, -151.816, 350.288 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( -151, -79, 113, -79, 114, -410, -151, -414 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( -244.464, -732.189, -245.408, -480.174, 107.601, -481.118, 109.489, -732.189 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( 928.365, -60.9883, 930.253, 242.939, 682.958, 246.715, 681.07, -60.9883 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Houses"]
+polygon = PoolVector2Array( 707.261, 730.4, 709.64, 323.691, 928.454, 322.502, 930.832, 731.589 )
+
+[node name="EnemyLawn3" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner3")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="EnemyLawn3"]
+position = Vector2( -69.4457, 674.155 )
+polygon = PoolVector2Array( 632.956, -731.428, 645.276, -434.279, 751.632, -426.342, 751.632, -731.123 )
+
+[node name="EnemyLawn" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyLawn"]
+polygon = PoolVector2Array( 614.141, -732.722, 611.168, -524.611, 734.846, -507.962, 734.846, -733.317 )
+
+[node name="EnemyLawn2" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner2")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="EnemyLawn2"]
+position = Vector2( -50.3969, 221.746 )
+polygon = PoolVector2Array( 632.956, -731.428, 616.119, -281.321, 982.042, -283.566, 983.164, -731.428 )
+
+[node name="EnemyLawn4" parent="." instance=ExtResource( 5 )]
+
+[node name="EnemyLawn5" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner5")
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="EnemyLawn5"]
+position = Vector2( -482.694, 1.56348 )
+polygon = PoolVector2Array( 594.309, -734.278, 590.34, -505.693, 732.412, -507.28, 734.794, -731.897 )
+
+[node name="EnemyLawn6" parent="." instance=ExtResource( 5 )]
+position = Vector2( -480.575, 334.235 )
+my_owner = NodePath("../Owner6")
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="EnemyLawn6"]
+polygon = PoolVector2Array( 594.309, -734.278, 594.633, -445.66, 682.568, -442.482, 706.936, -738.072 )
+
+[node name="EnemyLawn7" parent="." instance=ExtResource( 5 )]
+position = Vector2( -480.575, 334.235 )
+my_owner = NodePath("../Owner7")
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="EnemyLawn7"]
+position = Vector2( 20.216, 413.844 )
+polygon = PoolVector2Array( 594.309, -734.278, 596.65, -472.733, 697.732, -473.922, 694.165, -730.791 )
+
+[node name="EnemyLawn8" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner8")
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="EnemyLawn8"]
+position = Vector2( -440.336, 1028.4 )
+polygon = PoolVector2Array( 593.693, -731.255, 329.395, -430.916, 329.395, -376.188, 684.462, -365.509, 694.165, -730.791 )
+
+[node name="EnemyLawn9" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner9")
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="EnemyLawn9"]
+position = Vector2( -981.614, 1358.33 )
+polygon = PoolVector2Array( 594.309, -734.278, 581.613, -626.711, 849.657, -627.771, 845.419, -734.776 )
+
+[node name="EnemyLawn10" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner10")
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="EnemyLawn10"]
+position = Vector2( -1064.02, 546.247 )
+polygon = PoolVector2Array( 594.856, -736.842, 603.765, -511.444, 911.125, -510.554, 913.798, -726.151 )
+
+[node name="EnemyLawn11" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner11")
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="EnemyLawn11"]
+position = Vector2( -1435.83, 5.28973 )
+polygon = PoolVector2Array( 594.856, -736.842, 594.874, -478.286, 727.81, -465.558, 728.517, -735.673 )
+
+[node name="EnemyLawn12" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner12")
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="EnemyLawn12"]
+position = Vector2( -1449.99, 316.768 )
+polygon = PoolVector2Array( 609.885, -766.553, 594.874, -478.286, 673.125, -461.681, 670.293, -760.889 )
+
+[node name="EnemyLawn13" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("CollisionPolygon2D13")
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="EnemyLawn13"]
+position = Vector2( -1470.63, 627.899 )
+polygon = PoolVector2Array( 610.459, -771.282, 614.702, -559.15, 669.856, -559.15, 670.563, -758.554 )
+
+[node name="EnemyLawn14" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner14")
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="EnemyLawn14"]
+position = Vector2( -1433.25, 938.917 )
+polygon = PoolVector2Array( 594.292, -772.286, 573.641, -363.281, 671.929, -361.867, 670.563, -758.554 )
+
+[node name="EnemyLawn15" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner15")
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="EnemyLawn15"]
+position = Vector2( -1827.31, 1267.05 )
+polygon = PoolVector2Array( 593.477, -775.666, 593.426, -538.105, 692.96, -539.365, 677.891, -780.706 )
+
+[node name="EnemyLawn16" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner16")
+
+[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="EnemyLawn16"]
+position = Vector2( -1826.31, 934.046 )
+polygon = PoolVector2Array( 593.477, -775.666, 592.307, -462.046, 677.307, -471.046, 662.307, -779.046 )
+
+[node name="EnemyLawn17" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner17")
+
+[node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="EnemyLawn17"]
+position = Vector2( -2260.31, 943.046 )
+polygon = PoolVector2Array( 591.307, -783.046, 590.307, -460.046, 666.307, -451.046, 662.307, -779.046 )
+
+[node name="EnemyLawn18" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner18")
+
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="EnemyLawn18"]
+position = Vector2( -2069.39, 602.22 )
+polygon = PoolVector2Array( 591.307, -783.046, 587.88, -459.349, 905.931, -464.694, 905.04, -776.509 )
+
+[node name="EnemyLawn19" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner19")
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="EnemyLawn19"]
+position = Vector2( -2071.39, 174.22 )
+polygon = PoolVector2Array( 497.388, -765.22, 519.388, -382.22, 904.388, -370.22, 905.04, -776.509 )
+
+[node name="EnemyLawn20" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("../Owner20")
+
+[node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="EnemyLawn20"]
+position = Vector2( -2072.45, -252.743 )
+polygon = PoolVector2Array( 820.919, -476.902, 820.919, -369.268, 904.388, -370.22, 912.171, -478.443 )
+
+[node name="Owner20" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1208.01, -676.233 )
+
+[node name="Owner19" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1255.63, -250.809 )
+
+[node name="Owner18" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1178, -72 )
+
+[node name="Owner17" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1642, 338 )
+
+[node name="Owner16" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1192, 322 )
+
+[node name="Owner15" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1190, 610 )
+
+[node name="Owner14" parent="." instance=ExtResource( 1 )]
+position = Vector2( -815.507, 409.642 )
+
+[node name="Owner13" parent="." instance=ExtResource( 1 )]
+position = Vector2( -828, -18 )
+
+[node name="Owner12" parent="." instance=ExtResource( 1 )]
+position = Vector2( -814, -294 )
+
+[node name="Owner11" parent="." instance=ExtResource( 1 )]
+position = Vector2( -792, -602 )
+
+[node name="Owner10" parent="." instance=ExtResource( 1 )]
+position = Vector2( -326, -72 )
+
+[node name="Owner9" parent="." instance=ExtResource( 1 )]
+position = Vector2( -263.37, 674.6 )
+
+[node name="Owner8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 197.684, 547.625 )
+
+[node name="Owner7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 187.593, 133.904 )
+
+[node name="Owner6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 168.524, -265.142 )
+
+[node name="Owner5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 181.242, -608.942 )
+
+[node name="Owner2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 630.101, -275.89 )
+
+[node name="Owner" parent="." instance=ExtResource( 1 )]
+position = Vector2( 667.941, -611.408 )
+
+[node name="Owner3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 628.904, 106.527 )
+
+[editable path="Enemy3"]
+
+[editable path="Enemy3/EnemyController"]
