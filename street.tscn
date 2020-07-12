@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://environment/Tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://ui/GameOverOverlay.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemy/CarSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/CarDespawner.gd" type="Script" id=6]
 
@@ -57,6 +58,9 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDespawner2"]
 shape = SubResource( 1 )
+
+[node name="Overlay" parent="." instance=ExtResource( 4 )]
+[connection signal="game_over" from="Player" to="Overlay" method="_on_Player_game_over"]
 [connection signal="body_entered" from="CarDespawner" to="CarDespawner" method="_on_CarDespawner_body_entered"]
 [connection signal="body_entered" from="CarDespawner2" to="CarDespawner2" method="_on_CarDespawner_body_entered"]
 

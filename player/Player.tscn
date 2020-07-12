@@ -122,7 +122,6 @@ __meta__ = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
-
 [connection signal="game_over" from="." to="ControlManager" method="_on_Player_game_over"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
