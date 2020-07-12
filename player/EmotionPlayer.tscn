@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/emotion.tres" type="Animation" id=1]
+
+[sub_resource type="Animation" id=11]
+resource_name = "buildup"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 10.1965, 10.1965 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+
+[node name="EmotionPlayer" type="AnimationPlayer"]
+method_call_mode = 1
+anims/buildup = SubResource( 11 )
+anims/emotion = ExtResource( 1 )

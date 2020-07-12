@@ -15,6 +15,7 @@ func on_enter(target: Player):
 	target.anger = 0
 	target.fear *= 0.1
 	target.get_node("AnimatedSprite").frame = 3
+	target.get_node("EmotionPlayer").play("emotion")
 	for i in range(10):
 		var offset = Vector2(rand_range(-1.0, 1.0), rand_range(-1.0, 1.0)).normalized() * rage_velocity
 		$Tween.interpolate_method(target, "move", Vector2.ZERO, offset, 0.3, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT, i * 0.3)

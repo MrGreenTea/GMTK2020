@@ -5,6 +5,7 @@ export(float, 0.1, 10.0) var SPEED_MULTIPLIER = 2.0
 func on_enter(target: Player):
 	$Timer.start()
 	target.get_node("AnimatedSprite").frame = 4
+	target.get_node("EmotionPlayer").play("emotion")
 	target.fear = 0
 
 func on_physics_process(target: Player, delta: float):
