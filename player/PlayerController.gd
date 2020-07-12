@@ -52,7 +52,6 @@ func on_physics_process(target: Player, delta: float) -> void:
 		emote_sprite.frame = frame
 		# target.get_node("EmotionPlayer").stop()
 		target.get_node("EmotionPlayer").play("buildup")
-		print("Play buildup")
 	if target.stress >= target.MAX_STRESS:
 		if target.anger > target.fear:
 			go_to("Anger")
