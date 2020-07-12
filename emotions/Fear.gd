@@ -9,7 +9,7 @@ func on_enter(target: Player):
 	var effect = randi() % 9
 	var sound_effect = "res://sound/fear/aargh%d.ogg" % effect
 	if effect == 8:
-		sound_effect = "res://sound/fearWilhelm_Scream.ogg"
+		sound_effect = "res://sound/fear/Wilhelm_Scream.ogg"
 	$AudioStreamPlayer.stream = load(sound_effect)
 	$AudioStreamPlayer.play()
 
