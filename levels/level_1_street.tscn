@@ -87,6 +87,7 @@ position = Vector2( -50.3969, 221.746 )
 polygon = PoolVector2Array( 632.956, -731.428, 616.119, -281.321, 982.042, -283.566, 983.164, -731.428 )
 
 [node name="EnemyLawn4" parent="." instance=ExtResource( 5 )]
+my_owner = NodePath("")
 
 [node name="EnemyLawn5" parent="." instance=ExtResource( 5 )]
 my_owner = NodePath("../Owner5")
