@@ -7,7 +7,6 @@ func _ready():
 		if node.name == "TimerLabel":
 			timerLabel = node
 			break
-	print(timerLabel)
 
 func _on_Player_game_over(type):
 	prints("Game over type:", type)
