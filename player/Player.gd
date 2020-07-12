@@ -52,8 +52,8 @@ func _on_Arrested():
 func move(direction: Vector2):
 	if not $Footsteps.playing:
 		var foot_step = "res://player/footstep_wood_00%d.ogg" % (randi() % 5)
-		print(foot_step)
 		var sound = load(foot_step)
+		$Footsteps.stream = sound
 		$Footsteps.play()
 		
 	if abs(direction.x) > abs(direction.y):

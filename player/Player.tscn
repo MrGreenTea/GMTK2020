@@ -86,7 +86,6 @@ shape = SubResource( 1 )
 [node name="PlayerFrame" parent="." instance=ExtResource( 2 )]
 
 [node name="ControlManager" parent="." instance=ExtResource( 4 )]
-active = true
 target = NodePath("..")
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
