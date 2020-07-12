@@ -37,8 +37,6 @@ func _on_Timer_timeout():
 	$EmotionParticles.hide()
 	
 func _on_Arrested():
-	print("YOU WERE ARRESTED.")
-	emit_signal("game_over", "arrested")
 	show_game_over("arrested")
 
 func move(direction: Vector2):
