@@ -8,6 +8,8 @@ const EMOTIONS = ["Anger", "Fear"]
 func on_enter(target: Player):
 	randomize()
 	target.get_node("AnimatedSprite").frame = 0
+	target.get_node("AnimatedSprite").hide()
+	
 
 
 func on_physics_process(target: Player, delta: float) -> void:
@@ -19,8 +21,6 @@ func on_physics_process(target: Player, delta: float) -> void:
 		if movement.length() <= 0.1:
 			target.add_anger(delta)
 	target.stress += delta
-	var frame = round(float(target.stress) / target.MAX_STRESS * 2)
-	target.get_node("AnimatedSprite").frame = frame
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	# enemies in close vicinity cause fear
 	for e in enemies:
@@ -36,11 +36,22 @@ func on_physics_process(target: Player, delta: float) -> void:
 	# enemies touching us make us angry
 	for e in target.get_node("PushArea").get_overlapping_bodies():
 		target.add_anger(delta * 5)
+	var stress_percentage = float(target.stress) / target.MAX_STRESS
+	if stress_percentage > 0.85:
+		var emote_sprite = target.get_node("AnimatedSprite")
+		var frame = 0
+		if stress_percentage > 0.95:
+			frame = 2
+		elif stress_percentage > 0.9:
+			frame = 1
+		emote_sprite.show()
+		emote_sprite.frame = frame
 	if target.stress >= target.MAX_STRESS:
 		if target.anger > target.fear:
 			go_to("Anger")
 		elif target.fear > target.anger:
 			go_to("Fear")
 		else:
+			on_enter(target)  # fake re entering for reset
 			print("Nothing triggered me right now :)")
 		target.stress = 0
