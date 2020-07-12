@@ -15,7 +15,6 @@ func spawn_car():
 	return car_instance
 
 func _ready():
-	print(transform.y)
 	var wait_time = $Timer.wait_time
 	for i in range(INITIAL_CARS):
 		var car_instance = spawn_car()
