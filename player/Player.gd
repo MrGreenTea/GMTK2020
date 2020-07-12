@@ -76,6 +76,8 @@ func show_game_over(type):
 		get_node("/root/Node2D/Overlay/Transition").transition_out()
 		yield(get_node("/root/Node2D/Overlay/Transition/AnimationPlayer"),"animation_finished") 
 		get_node("/root/Node2D/Overlay/GameOver").visible = true
+		yield(get_tree().create_timer(5), "timeout")
+		get_tree().reload_current_scene()
 
 
 func _on_FearTimer_timeout():
